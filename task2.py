@@ -90,14 +90,7 @@ if not get_photos:
                             per_page=100,
                             sort="relevance")
 
-photos = flickr.walk(text=keyword,
-                         tag_mode='all',
-                         tags=keyword,
-                         extras='url_c',
-                         per_page=100,
-                         sort="relevance")
-
-# photos = get_photos()
+photos = get_photos()
 urls = []
 
 for i, photo in enumerate(photos):
