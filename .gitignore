@@ -1,2 +1,5 @@
-# vurtualenv
+# virtualenv
 env/*
+
+# secrets
+.env
