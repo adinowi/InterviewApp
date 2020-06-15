@@ -17,7 +17,8 @@ try:
     keyword = sys.argv[1]
     limit = int(sys.argv[2])
 except Exception as error:
-    get_photos = lambda : flickr.photos.getRecent(extras='url_c')
+    get_photos = lambda : flickr.photos.getRecent(
+                            extras='url_c')
     limit = 100
     print("Wrong arguments\n", error)
 
@@ -79,8 +80,6 @@ class DatabaseManager:
             print("Failed to find the most red-colored photo", error)
 
 
-
-
 flickr=flickrapi.FlickrAPI(API_KEY,API_SECRET,cache=True)
 
 if not get_photos:
@@ -106,7 +105,8 @@ for i, photo in enumerate(photos):
         break
     try:
         url=photo.get('url_c')
-        urls.append(url)
+        if url:
+            urls.append(url)
     except Exception as e:
         print('failed to download image')
     
